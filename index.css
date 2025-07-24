@@ -1,0 +1,27 @@
+*{
+    opacity: inherit;
+}
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.navlinks{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.logo{
+    width: 100px;
+}
+.nav{
+    background-color: chartreuse;
+}
+
