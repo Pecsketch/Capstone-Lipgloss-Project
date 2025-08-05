@@ -1,76 +1,90 @@
-*{
+* {
+    margin: 0;
     opacity: inherit;
 }
-body{
+
+body {
     background-color: #fff0f5;
+    color: #333;
     opacity: 100pc;
 }
 
 
-.header{
+.header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ff69b4;
+    position: sticky;
+    top: 0;
+    z-index: 10;
     flex-direction: row;
-     gap: 50px;
+    gap: 50px;
 }
 
-    .logo{
+.logo {
     width: 100px;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-
+    margin-left: 20px;
 }
 
 
-.navbar{
+.navbar {
     display: flex;
-justify-content: space-between;  
-    background-color: #fff0f5;
-     position: sticky; 
+    justify-content: center;
+    background-color: #ff69b4;
+    position: sticky;
+    margin-right: 50px;
 
 }
 
-.navlinks{
+.navlinks {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     list-style-type: none;
     font-size: larger;
-    gap: 60px;
-    
+    gap: 40px;
+    text-align: center;
+
 }
 
-#pout
-{
+#pout {
     display: flex;
     flex-direction: row;
     margin-top: 20px;
-    margin-bottom: 50px;
-justify-content: center;}
+    margin-bottom: 20px;
+    justify-content: center;
+}
 
- a{
+a {
     text-decoration-line: none;
 }
 
 
 
-.products
-{
+.products {
     display: flex;
+    margin-top: 25px;
+    margin-left: 70px;
+    margin-right: 100px;
+    gap: 80px;
 }
 
-.product-card
-{
+.product-card {
     flex-direction: column;
     justify-content: center;
-    gap: 15px;
+    gap: 120px;
     margin-bottom: 10px;
     border: 2px solid #fddde6;
     border-radius: 20px;
     width: 280px;
     text-align: center;
 }
-.product-card img{ 
+
+.product-card img {
     width: auto;
     height: 250px;
     display: block;
@@ -79,33 +93,47 @@ justify-content: center;}
     background-color: white;
     padding: 10px;
     border-radius: 10px;
+    
 }
-button{
+
+button {
     background-color: #ff69b4;
+    color: white;
     border: 0.5px solid #ff69b4;
     border-radius: 30px;
     padding: 15px;
 }
 
-#send
-{
-    
-} 
-.Contact{
- text-align: center;%
+#send {
+    margin-top: 10px;
 }
-.About{
+
+.Contact {
+    text-align: center;
+    %
+}
+
+.About {
     text-align: center;
 }
+
 h1 {
     text-align: center;
 }
-h2{
+
+h2 {
     text-align: center;
 }
-p{ 
+
+p {
     text-align: center;
+    font-size: large;
+    font-style: italic;
 }
-footer{
+
+footer {
+   background-color: #ff69b4;
+   padding: 30px 20px;
     text-align: center;
+    font-size: 0.9rem;
 }
