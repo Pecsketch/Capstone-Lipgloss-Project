@@ -15,9 +15,6 @@ body {
     justify-content: space-between;
     align-items: center;
     background-color: #ff69b4;
-    position: sticky;
-    top: 0;
-    z-index: 10;
     flex-direction: row;
     gap: 50px;
 }
@@ -35,9 +32,8 @@ body {
     display: flex;
     justify-content: center;
     background-color: #ff69b4;
+    margin-right: 30px;
     position: sticky;
-    margin-right: 50px;
-
 }
 
 .navlinks {
@@ -45,10 +41,9 @@ body {
     flex-direction: row;
     justify-content: space-between;
     list-style-type: none;
-    font-size: larger;
+    font-size: large;
     gap: 40px;
     text-align: center;
-
 }
 
 #pout {
@@ -63,14 +58,13 @@ a {
     text-decoration-line: none;
 }
 
-
-
 .products {
     display: flex;
     margin-top: 25px;
     margin-left: 70px;
     margin-right: 100px;
-    gap: 80px;
+    gap: 70px;
+    transform: scale(1);
 }
 
 .product-card {
@@ -82,7 +76,7 @@ a {
     border-radius: 20px;
     width: 280px;
     text-align: center;
-}
+   }
 
 .product-card img {
     width: auto;
@@ -93,8 +87,7 @@ a {
     background-color: white;
     padding: 10px;
     border-radius: 10px;
-    
-}
+    }
 
 button {
     background-color: #ff69b4;
@@ -107,12 +100,6 @@ button {
 #send {
     margin-top: 10px;
 }
-
-.Contact {
-    text-align: center;
-    %
-}
-
 .About {
     text-align: center;
 }
@@ -136,4 +123,7 @@ footer {
    padding: 30px 20px;
     text-align: center;
     font-size: 0.9rem;
+}
+html{
+    scroll-behavior: smooth;
 }

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Contact Us - Lipgloss brand </title>
+
+<body>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff0f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ff69b4;
+            flex-direction: row;
+            gap: 50px;
+        } */
+
+        .navbars {
+            display: flex;
+            justify-content: center;
+            background-color: #ff69b4;
+            position: sticky;
+        }
+
+        .navlink{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            list-style-type: none;
+            font-size: large;
+            gap: 40px;
+            text-align: center;
+        }
+
+        a {
+            text-decoration-line: none;
+        }
+
+
+        section {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #ff66b2;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            color: #555;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #ff69b4;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background-color: #e0559d;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .contact-info a {
+            color: #ff66b2;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+        }
+
+        footer {
+            background-color: #ff69b4;
+            padding: 30px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+    </style>
+    </head>
+    <header class="header">
+        <nav class="navbars">
+            <ul class="navlink">
+                <li> <a href="index.html"> Home </a></li>
+                <li><a href="#About"> About </a></li>
+                <li><a href="#Products"> Products </a></li>
+                <li><a href="contact.html"> Contact </a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+<section>
+    <h2> Get in Touch </h2>
+    <p> We'd love to hear from you! <br> Whether it's about our glosses, your order, or just to say hi, send
+        us a message below.<br>Or reach out to us through our socials. </p>
+    <form id="contact-form">
+        <label id="name"> Name <input id="Name" type="text" placeholder="Enter your name" required></label>
+        <br>
+        <label id="email"> Email <input id="Email" type="email" placeholder="Enter your email" required></label><br>
+        <label id="number"> Number <input id="Number" type="number" placeholder="Enter your number"
+                required></label><br>
+        <textarea name="message" placeholder="Your message" rows="5" required></textarea>
+
+        <button type="submit" id="send">Send Message </button><br>
+    </form>
+
+    <div class="contact-info">
+        <p><strong> Email:</strong> hello@pecpout.com</p>
+        <p><strong> Phone:</strong> +234 706 199 7684</p>
+        <p> <strong> Instargram:</strong> @pecpout</p>
+    </div>
+</section>
+
+<footer> &copy; 2025 Peculiar pout. designed with love
+    <p> Follows us on <a href="Twitter.com">Twitter</a> | <a href="Facebook.com">Facebook</a> | <a
+            href="Instargram.com"> Instargram </a></p>
+</footer>
+
+</html>
