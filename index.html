@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title> Pec's Lip Gloss </title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -17,11 +18,14 @@
                 <li><a href="#About"> About </a></li>
                 <li><a href="#Products"> Products </a></li>
                 <li><a href="contact.html"> Contact </a></li>
+                <li class="cart"></li>
+                <a href="#"><span id="cart-count">0</span></a>
+            </li>
             </ul>
         </nav>
     </header>
     <section id="Home" class="hero">
-        <h1 id="pout">PECULIAR POUT </h1>
+        <h1>PECULIAR POUT </h1>
         <p id="pout">Because every pout deserves to be peculiar </p>
     </section>
 
@@ -43,7 +47,7 @@
                 <img src="peach.jpg" alt="peach">
                 <h3> Peach Gloss </h3>
                 <p> 3,500 </p>
-                <button> Add to cart </button>
+                <button class="add-to-cart"> Add to cart </button>
             </div>
 
 
@@ -54,7 +58,7 @@
                 <figcaption>
                     <h3> Rose Tint </h3>
                     <p> 3,000 </p>
-                    <button> Add to cart </button>
+                    <button class="add-to-cart"> Add to cart </button>
             </div>
 
             <div class="product-card">
@@ -62,7 +66,7 @@
                 <img src="crystal clear.png" alt="crystal clear">
                 <h3> Crystal Clear Gloss </h3>
                 <p> 4,000 </p>
-                <button> Add to cart </button>
+                <button class="add-to-cart"> Add to cart </button>
             </div>
 
             <div class="product-card">
@@ -70,18 +74,18 @@
                 <img src="brown.png" alt="brown">
                 <h3> Brown Gloss </h3>
                 <p> 2,500 </p>
-                <button> Add to cart </button>
+                <button class="add-to-cart"> Add to cart </button>
             </div>
     </section>
 
-    <section 1>
+    <section id="section1">...</section>
         <div class="products">
             <div class="product-card">
                 <div class="discount"> 10% OFF</div>
                 <img src="purple lipstick.png" alt="purple lipstick">
                 <h3> Purple Lipstick </h3>
                 <p> 3,000 </p>
-                <button> Add to cart </button>
+                <button class="add-to-cart"> Add to cart </button>
             </div>
 
             <div class="product-card">
@@ -89,7 +93,7 @@
                 <img src="light pink gloss.png" alt="light pink gloss">
                 <h3> Light Pink Gloss </h3>
                 <p> 4,000 </p>
-                <button> Add to cart </button>
+                <button class="add-to-cart"> Add to cart </button>
             </div>
 
             <div class="product-card">
@@ -97,7 +101,7 @@
                 <img src="blue gloss.png" alt="blue gloss">
                 <h3> Blue Gloss </h3>
                 <p> 3,000 </p>
-                <button> Add to cart </button>
+                <button class="add-to-cart"> Add to cart </button>
             </div>
 
             <div class="product-card">
@@ -105,14 +109,46 @@
                 <img src="ashley.png" alt="ashley">
                 <h3> Ashley Gloss </h3>
                 <p> 3,500 </p>
-                <button> Add to cart </button>
+                <button class="add-to-cart"> Add to cart </button>
             </div>
     </section>
 
+    <section id="section2">...</section>
+        <div class="products">
+            <div class="product-card">
+                <div class="discount"> 10% OFF</div>
+                <img src="Water light tint.jpg" alt="Water light tint">
+                <h3> Water light tint </h3>
+                <p> 4,500 </p>
+                <button class="add-to-cart"> Add to cart </button>
+            </div>
+
+            <div class="product-card">
+                <div class="discount"> 10% OFF</div>
+                <img src="Net lipstick.jpg" alt="Net lipstick">
+                <h3> Net Lipstick </h3>
+                <p> 3,000 </p>
+                <button class="add-to-cart"> Add to cart </button>
+            </div>
+    </section>
     <br>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let count = 0; 
+        const buttons = document.querySelectorAll('.add-to-cart');
+        const cartCount = document.getElementById('cart-count');
+
+        buttons.forEach(function(button) {
+            button.addEventListener('click', function () {
+                count++;
+                cartCount.textContent = count;
+            });
+        });
+    });
+</script>
     <footer> &copy; 2025 Peculiar pout. designed with love
-        <p> Follows us on <a href="Twitter.com">Twitter</a> | <a href="Facebook.com">Facebook</a> | <a
-                href="Instargram.com"> Instargram </a></p>
+        <p> Follows us on <a href="https://twitter.com">Twitter</a> | <a href="Facebook.com">Facebook</a> | 
+<a href="https://instagram.com">Instagram</a>
     </footer>
 </body>
 
