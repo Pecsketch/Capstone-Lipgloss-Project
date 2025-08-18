@@ -1,10 +1,12 @@
 * {
     margin: 0;
     opacity: inherit;
-    }
+}
+
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px; /* match your header height */
+    scroll-padding-top: 100px;
+    /* match your header height */
 }
 
 body {
@@ -62,6 +64,7 @@ body {
     margin-top: 20px;
     margin-bottom: 20px;
     justify-content: center;
+    font-family: Algerian;
 }
 
 a {
@@ -89,10 +92,46 @@ a {
     /* darker pink on hover */
 }
 
-@media (max-width: 600px) {
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
+.cart-container {
+    position: fixed;
+    right: 20px;
+    top: 70px;
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    display: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.cart-item span {
+    flex: 1;
+}
+
+.cart-item button {
+    background: red;
+    color: white;
+    border: none;
+    padding: 3px 6px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+        text-align: center;
     }
 }
 
@@ -130,6 +169,38 @@ img:hover {
     transform: scale(1.1);
 }
 
+.reviews {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.review-card {
+    background: #fff0f6;
+    border-radius: 12px;
+    padding: 15px;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.review-card p {
+    font-size: 16px;
+    color: #333;
+}
+
+.reviews-link {
+    text-align: center;
+}
+
+.review-card span {
+    display: block;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #777;
+    font-style: italic;
+}
+
 button {
     background-color: #ff69b4;
     color: white;
@@ -148,8 +219,10 @@ button {
     text-align: center;
     line-height: 1.5;
 }
+
 .About p {
-    margin-bottom: 15px; /* space between paragraphs */
+    margin-bottom: 15px;
+    /* space between paragraphs */
     font-size: 1.1em;
 }
 
