@@ -128,18 +128,61 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
 
-    footer {
+    .luxury-footer {
         background-color: #ff69b4;
-        padding: 30px 20px;
+        /* white background */
+        color: #222;
+        padding: 15px 10px;
+        /* reduced padding */
         text-align: center;
-        font-size: 0.9rem;
-        font-style: italic;
+        font-family: 'Georgia', serif;
+        border-top: 1px solid #eee;
+    }
+
+    .luxury-footer h2 {
+        font-size: 18px;
+        /* smaller brand text */
+        font-weight: bold;
+        color: #d63384;
+        margin-bottom: 3px;
+        letter-spacing: 1px;
+    }
+
+    .luxury-footer p {
+        font-size: 12px;
+        color: #555;
+        margin: 3px 0;
+        /* very tight spacing */
+        line-height: 1.3;
+    }
+
+    .footer-socials {
+        margin: 5px 0;
+        /* reduced margin */
+    }
+
+    .footer-socials a {
+        color: #d63384;
+        margin: 0 6px;
+        font-size: 15px;
+        /* smaller icons */
+        transition: color 0.3s ease;
+    }
+
+    .footer-socials a:hover {
+        color: #000;
+    }
+
+    .copyright {
+        font-size: 11px;
+        color: #777;
+        margin-top: 5px;
     }
 </style>
 
 <body>
     <header class="header">
-        <img src="logo pec.png" alt="logo" class="logo">
+        <img src="images lipgloss/logo pec.png" alt="logo" class="logo">
         <nav class="navbar">
             <ul class="navlinks">
                 <li><a href="index.html">Home</a></li>
@@ -171,16 +214,19 @@
             <a href="index.html#Products" class="btn">Shop Our Collection</a>
         </div>
     </section>
-
-    <footer> &copy; 2025 Peculiar pout. designed with love
-        <p> Follows us on <a href="Twitter.com">Twitter</a> | <a href="Facebook.com">Facebook</a> | <a
-                href="Instargram.com"> Instargram </a></p>
+    <footer class="luxury-footer">
+        <div class="footer-content">
+            <h2>Peculiar Pout</h2>
+            <p>Shining smiles, one gloss at a time.</p>
+            <div class="footer-socials">
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <p class="copyright">&copy; 2025 Peculiar Pout. All Rights Reserved.</p>
+        </div>
     </footer>
+</body>
 
 </html>
-<!-- <section class="About" id="About"> -->
-<!-- <h2>ABOUT US</h2>
-        <p>Peculiar pout is a youth-driven lip gloss brand based in Nigeria.</p>
-        <p>We focus on beauty, confidence, and creativity.</p>
-        <p>Our aim is to help girls feel bold and beautiful, one swipe at a time.</p>
-    </section> -->

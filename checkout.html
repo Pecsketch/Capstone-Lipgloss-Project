@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Checkout - Peculiar Pout</title>
+    <style>
+        body {
+            background: #fff5f8;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ff69b4;
+            flex-direction: row;
+            gap: 50px;
+            padding-left: 30px;
+            padding-right: 30px;
+            position: sticky;
+            top: 0;
+        }
+
+        .logo {
+            width: 100px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            margin-left: 20px;
+            margin-top: 2px;
+            margin-bottom: 2px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #ff69b4;
+            margin-right: 30px;
+            position: sticky;
+            flex-wrap: wrap;
+        }
+
+        .navlinks {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            list-style-type: none;
+            font-size: large;
+            gap: 40px;
+            text-align: center;
+        }
+
+        a {
+            text-decoration-line: none;
+        }
+
+        #pout {
+            display: flex;
+            flex-direction: row;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            justify-content: center;
+            font-family: Algerian;
+        }
+
+        .checkout-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #d63384;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #f9f1f5;
+            color: #d63384;
+        }
+
+        .btn {
+            background: #d63384;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background: #b52d6e;
+        }
+
+        .thankyou-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .thankyou-box {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 400px;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .thankyou-box h2 {
+            color: #d63384;
+        }
+
+        .close-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #d63384;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+
+        .luxury-footer {
+            background-color: #ff69b4;
+            /* white background */
+            color: #222;
+            /* elegant dark grey text */
+            padding: 15px 10px;
+            text-align: center;
+            font-family: 'Georgia', serif;
+            /* classy serif font */
+            border-top: 1px solid #eee;
+            /* subtle divider */
+        }
+
+        .luxury-footer h2 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #d63384;
+            /* brand pink accent */
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+
+        .luxury-footer p {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .footer-socials {
+            margin: 5px 0;
+        }
+
+        .footer-socials a {
+            color: #d63384;
+            /* brand pink icons */
+            margin: 0 12px;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-socials a:hover {
+            color: #000;
+            /* elegant hover effect */
+        }
+
+        .copyright {
+            font-size: 12px;
+            color: #888;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <img src="images lipgloss/logo pec.png" alt="logo" class="logo">
+        <h1 id="pout">PECULIAR POUT</h1>
+        <nav class="navbar">
+            <ul class="navlinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="#Products">Products</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="checkout-container">
+        <h2>Checkout</h2>
+
+        <!-- Cart Summary -->
+        <div class="cart-summary">
+            <h3>Your Order</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items"></tbody>
+                <tfoot>
+                    <tr>
+                        <th>Total</th>
+                        <th id="cart-total">₦0</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <!-- Checkout Form -->
+        <form id="checkout-form">
+            <input type="text" placeholder="Full Name" required style="width:100%;padding:10px;margin-bottom:10px;">
+            <input type="email" placeholder="Email" required style="width:100%;padding:10px;margin-bottom:10px;">
+            <input type="text" placeholder="Address" required style="width:100%;padding:10px;margin-bottom:10px;">
+            <button type="submit" class="btn">Place Order</button>
+        </form>
+    </div>
+
+    <!-- Thank You Popup -->
+    <div class="thankyou-popup" id="thankyou-popup">
+        <div class="thankyou-box">
+            <h2>🎉 Thank You!</h2>
+            <p>Your order has been placed successfully.</p>
+            <button class="close-btn" onclick="closePopup()">OK</button>
+        </div>
+    </div>
+
+    <footer class="luxury-footer">
+        <div class="footer-content">
+            <h2>Peculiar Pout</h2>
+            <p>Shining smiles, one gloss at a time.</p>
+            <div class="footer-socials">
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <p class="copyright">&copy; 2025 Peculiar Pout. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        const cartList = document.getElementById("cart-items");
+        const cartTotal = document.getElementById("cart-total");
+        const popup = document.getElementById("thankyou-popup");
+        const checkoutForm = document.getElementById("checkout-form");
+
+        let total = 0;
+
+        // Display products and calculate total
+        cartItems.forEach(item => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+        <td>${item.name}</td>
+        <td>${item.quantity}</td>
+        <td>₦${item.price.toLocaleString()}</td>
+        <td>₦${(item.price * item.quantity).toLocaleString()}</td>
+    `;
+            cartList.appendChild(row);
+            total += item.price * item.quantity;
+        });
+
+
+        cartTotal.textContent = "₦" + total.toLocaleString();
+
+        // Handle form submission
+        checkoutForm.addEventListener("submit", function (e) {
+            e.preventDefault(); // stop page reload
+            checkout();
+        });
+
+        function checkout() {
+            // Clear localStorage
+            localStorage.removeItem("cartItems");
+
+            // Clear products from screen
+            cartList.innerHTML = "";
+            cartTotal.textContent = "₦0";
+
+            // Show Thank You popup
+            popup.style.display = "flex";
+
+            // Auto-close after 5 seconds
+            setTimeout(() => {
+                closePopup();
+            }, 5000);
+        }
+
+        function closePopup() {
+            popup.style.display = "none";
+            window.location.href = "index.html"; // redirect to homepage
+        }
+    </script>
+
+</body>
+
+</html>
