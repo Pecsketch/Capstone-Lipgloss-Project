@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Checkout - Peculiar Pout</title>
     <style>
@@ -100,6 +101,34 @@
         th {
             background: #f9f1f5;
             color: #d63384;
+        }
+
+        .payment-method {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .payment-method h2 {
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .payment-method label {
+            display: block;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .payment-method input[type="text"],
+        .payment-method input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 6px 0 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
         }
 
         .btn {
@@ -258,9 +287,40 @@
             <input type="text" placeholder="Full Name" required style="width:100%;padding:10px;margin-bottom:10px;">
             <input type="email" placeholder="Email" required style="width:100%;padding:10px;margin-bottom:10px;">
             <input type="text" placeholder="Address" required style="width:100%;padding:10px;margin-bottom:10px;">
-            <button type="submit" class="btn">Place Order</button>
-        </form>
+            <section class="payment-method">
+                <h2>Payment Method</h2>
+                <form action="#" method="post">
+                    <label>
+                        <input type="radio" name="payment" value="card" required>
+                        Credit / Debit Card
+                    </label><br>
+
+                    <label>
+                        <input type="radio" name="payment" value="paypal">
+                        PayPal
+                    </label><br>
+
+                    <label>
+                        <input type="radio" name="payment" value="cod">
+                        Cash on Delivery
+                    </label><br>
+
+                    <!-- If card is selected, show fields -->
+                    <div class="card-details">
+                        <label>Card Number</label>
+                        <input type="text" placeholder="1234 5678 9012 3456">
+
+                        <label>Expiry Date</label>
+                        <input type="text" placeholder="MM/YY">
+
+                        <label>CVV</label>
+                        <input type="password" placeholder="***">
+                    </div>
+
+                    <button type="submit" class="btn">Place Order</button>
+                </form>
     </div>
+
 
     <!-- Thank You Popup -->
     <div class="thankyou-popup" id="thankyou-popup">
@@ -338,7 +398,7 @@
             window.location.href = "index.html"; // redirect to homepage
         }
 
-        
+
     </script>
 
 </body>
