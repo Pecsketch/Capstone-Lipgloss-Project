@@ -81,7 +81,14 @@ body {
     font-family: Algerian;
     color: whitesmoke;
 }
-
+#pot{
+    flex-direction: row;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    justify-content: center;
+    font-family: Algerian;
+    color: black;
+}
 a {
     text-decoration-line: none;
 }
@@ -249,7 +256,7 @@ button {
 }
 
 .About {
-    margin 10px;
+    margin: 10px;
     padding: 20px;
     text-align: center;
     line-height: 1.5;
@@ -357,7 +364,7 @@ nav {
 }
 
 /* Adjust for phones */
-@media (max-width: 500px) {
+@media (max-width: 767px) {
     :root {
         --font-size-heading: 1.4rem;
         --font-size-body: 0.9rem;
