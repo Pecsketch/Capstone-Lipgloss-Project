@@ -81,6 +81,80 @@
         text-decoration-line: none;
     }
 
+
+    .cart a i {
+        color: white;
+        /* cart icon white */
+    }
+
+    .currency {
+        font-weight: bold;
+        margin-right: 2px;
+    }
+
+    .add-to-cart {
+        cursor: pointer;
+        background-color: #ff69b4;
+        /* pink */
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .add-to-cart:hover {
+        background-color: #ff1493;
+        /* darker pink */
+    }
+
+    .cart-container {
+        position: fixed;
+        right: 20px;
+        top: 70px;
+        width: 300px;
+        max-height: 400px;
+        overflow-y: auto;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 10px;
+        display: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+
+    .cart-item button {
+        background: red;
+        color: white;
+        border: none;
+        padding: 3px 6px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #checkout-btn {
+        background: #ff69b4;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 6px;
+        width: 100%;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+
+    #checkout-btn:hover {
+        background: #ff1493;
+    }
+
     .about-section {
         display: flex;
         text-align: center;
@@ -191,9 +265,28 @@
                 <li><a href="About.html">About</a></li>
                 <li><a href="#products">Products</a></li>
                 <li><a href="contact.html">Contact</a></li>
+
+                <li class="cart">
+                    <a href="#">
+                        <i class="fa fa-shopping-cart" style="font-size: 28px; position: relative;">
+                            <span id="cart-count" style="position: absolute; top: -8px; right: -10px;
+                                     background: red; color: white; font-size: 12px;
+                                     padding: 2px 6px; border-radius: 50%; display: none;">
+                            </span>
+                        </i>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
+
+    <!-- Cart dropdown -->
+    <div class="cart-container" id="cart">
+        <h3>Your Cart</h3>
+        <div id="cart-items"></div>
+        <p><strong>Total: ₦<span id="cart-total">0</span></strong></p>
+        <button id="checkout-btn">Checkout</button>
+    </div>
 
     <section class="about-section">
         <div class="about-container">
@@ -229,6 +322,115 @@
             <p class="copyright">&copy; 2025 Peculiar Pout. All Rights Reserved.</p>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let cart = JSON.parse(localStorage.getItem("cartItems")) || [];
+            const buttons = document.querySelectorAll('.add-to-cart');
+            const cartCount = document.getElementById('cart-count');
+            const cartIcon = document.getElementById('cart-icon') || document.querySelector('.cart a');
+            const cartContainer = document.getElementById('cart');
+            const cartItems = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            const checkoutBtn = document.getElementById('checkout-btn');
+
+            // Add to cart
+            buttons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    const productCard = button.closest('.product-card');
+                    const name = productCard.querySelector('h3').innerText;
+                    const priceText = productCard.querySelector('p').innerText;
+                    const price = parseFloat(priceText.replace(/[₦,]/g, ""));
+
+                    // ✅ Check if item already exists
+                    let existing = cart.find(item => item.name === name);
+                    if (existing) {
+                        existing.quantity++;
+                    } else {
+                        cart.push({ name, price, quantity: 1 });
+                    }
+
+                    saveCart();
+                    renderCart();
+                });
+            });
+
+            // Render cart
+            function renderCart() {
+                cartItems.innerHTML = "";
+                let total = 0;
+
+                cart.forEach((item, index) => {
+                    total += item.price * item.quantity;
+                    const div = document.createElement("div");
+                    div.classList.add("cart-item");
+                    div.style.display = "flex";
+                    div.style.justifyContent = "space-between";
+                    div.style.alignItems = "center";
+                    div.style.marginBottom = "8px";
+
+                    div.innerHTML = `
+                <span>${item.name}</span>
+                <div style="display: flex; align-items: center; gap: 6px;">
+                    <button onclick="updateQty(${index}, -1)">-</button>
+                    <span>${item.quantity}</span>
+                    <button onclick="updateQty(${index}, 1)">+</button>
+                    <span>₦${(item.price * item.quantity).toLocaleString()}</span>
+                    <button onclick="removeFromCart(${index})"><i class="fa fa-trash"></i></button>
+                </div>
+            `;
+                    cartItems.appendChild(div);
+                });
+
+                cartTotal.textContent = "" + total.toLocaleString();
+                let totalQty = cart.reduce((sum, item) => sum + item.quantity, 0);
+                cartCount.textContent = totalQty;
+                cartCount.style.display = totalQty > 0 ? "inline-block" : "none";
+
+                cartCount.style.display = cart.length > 0 ? "inline-block" : "none";
+
+                saveCart(total);
+            }
+
+            // Save to localStorage
+            function saveCart(total = 0) {
+                localStorage.setItem("cartItems", JSON.stringify(cart));
+                localStorage.setItem("cartTotal", total);
+            }
+
+            // Update quantity
+            window.updateQty = function (index, change) {
+                cart[index].quantity += change;
+                if (cart[index].quantity <= 0) {
+                    cart.splice(index, 1);
+                }
+                renderCart();
+            };
+
+            // Remove from cart
+            window.removeFromCart = function (index) {
+                cart.splice(index, 1);
+                renderCart();
+            };
+
+            // Toggle cart dropdown
+            cartIcon.addEventListener('click', (e) => {
+                e.preventDefault();
+                cartContainer.style.display = cartContainer.style.display === 'none' ? 'block' : 'none';
+            });
+
+            // Checkout button
+            checkoutBtn.addEventListener('click', function () {
+                if (cart.length === 0) {
+                    alert("Your cart is empty!");
+                } else {
+                    window.location.href = "checkout.html";
+                }
+            });
+
+            // ✅ Render on page load (restore cart)
+            renderCart();
+        });
+    </script>
 </body>
 
 </html>
